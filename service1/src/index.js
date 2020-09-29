@@ -1,7 +1,8 @@
 require("dotenv").config();
 const fetch = require("node-fetch");
 const http = require("http");
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
+const PORT_S2 = process.env.PORT_S2 || 5002;
 http
   .createServer(async (req, res) => {
     try {
@@ -11,7 +12,7 @@ http
       const localPort = req.client.localPort;
 
       const message = `Hello from ${remoteAddress}:${remotePort}\nto ${localAddress}:${localPort}\n`;
-      const response = await fetch(`http://service2:8002`);
+      const response = await fetch(`http://service2:${PORT_S2}`);
 
       const fullMessage = message.concat(await response.text());
 

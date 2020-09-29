@@ -9,6 +9,7 @@ services:
       - 8001:8001
     environment:
       - PORT=8001
+      - PORT_S2=8002
     restart: always
     command: npm start
   service2:
