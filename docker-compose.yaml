@@ -1,0 +1,22 @@
+version: "3"
+services:
+  service1:
+    build:
+      context: ./service1
+      dockerfile: Dockerfile
+    expose: [8001]
+    ports:
+      - 8001:8001
+    environment:
+      - PORT=8001
+    restart: always
+    command: npm start
+  service2:
+    build:
+      context: ./service2
+      dockerfile: Dockerfile
+    expose: [8002]
+    environment:
+      - PORT=8002
+    restart: always
+    command: npm start
